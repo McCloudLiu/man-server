@@ -1,0 +1,10 @@
+import { app } from '@eggjs/mock/bootstrap';
+import { strict as assert } from 'node:assert';
+
+describe('test/app/module/bar/controller/home.test.ts', () => {
+  it('should GET /', async () => {
+    const res = await app.httpRequest().get('/');
+    assert.equal(res.status, 200);
+    assert.equal(res.text, 'hello egg');
+  });
+});

@@ -1,0 +1,71 @@
+{
+  "name": "man-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "preci": "npm run clean && npm run lint",
+    "ci": "egg-bin cov",
+    "postci": "npm run prepublishOnly && npm start && npm stop && npm run clean",
+    "clean": "tsc -b --clean",
+    "dev": "egg-bin dev",
+    "format": "prettier --write . --cache",
+    "lint": "eslint . --ext .ts --cache",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run clean && npm run tsc",
+    "start": "eggctl start --daemon --title=egg-server-man-server",
+    "stop": "eggctl stop --title=egg-server-man-server",
+    "pretest": "npm run clean && npm run lint -- --fix",
+    "test": "egg-bin test",
+    "test:local": "egg-bin test",
+    "tsc": "tsc"
+  },
+  "lint-staged": {
+    "{app,config}/**/*.{js,ts,json}": [
+      "npm run format",
+      "npm run lint -s --"
+    ]
+  },
+  "dependencies": {
+    "@eggjs/scripts": "^4.0.0",
+    "@eggjs/tegg": "^3.5.2",
+    "@eggjs/tegg-aop-plugin": "^3.5.2",
+    "@eggjs/tegg-config": "^3.5.2",
+    "@eggjs/tegg-controller-plugin": "^3.5.2",
+    "@eggjs/tegg-eventbus-plugin": "^3.5.2",
+    "@eggjs/tegg-plugin": "^3.5.2",
+    "@eggjs/tegg-schedule-plugin": "^3.5.2",
+    "@eggjs/tracer": "^3.0.0",
+    "egg": "^4.0.0",
+    "egg-cors": "^3.0.1",
+    "egg-mysql": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eggjs/bin": "7",
+    "@eggjs/mock": "6",
+    "@eggjs/tsconfig": "1",
+    "@types/mocha": "10",
+    "@types/node": "22",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.10",
+    "typescript": "5"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "egg": {
+    "typescript": true
+  }
+}

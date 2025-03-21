@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "rules": {
+    "arrow-parens": ["error", "always"],
+    "array-bracket-spacing": "warn",
+    "curly": "off",
+    "no-restricted-imports": "off",
+  },
+  "extends": [
+    "eslint-config-egg/typescript",
+    "eslint-config-egg/lib/rules/enforce-node-prefix",
+  ],
+}
