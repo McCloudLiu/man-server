@@ -46,6 +46,8 @@ export default class UploadController {
 
     const exactFilePath = path.resolve(this.config.uploadFileDir, filename);
 
+    await fs.promises.mkdir(this.config.uploadFileDir, { recursive: true });
+
     await fs.promises.copyFile(file.filepath, exactFilePath);
 
     // 删除临时文件
