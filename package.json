@@ -10,6 +10,7 @@
   "license": "MIT",
   "author": "",
   "scripts": {
+    "build": "node scripts/before-deploy.js",
     "preci": "npm run clean && npm run lint",
     "ci": "egg-bin cov",
     "postci": "npm run prepublishOnly && npm start && npm stop && npm run clean",
@@ -19,7 +20,7 @@
     "lint": "eslint . --ext .ts --cache",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "prepublishOnly": "npm run clean && npm run tsc",
+    "prepublishOnly": "npm run clean && node scripts/before-deploy.js",
     "start": "eggctl start --daemon --title=egg-server-man-server",
     "stop": "eggctl stop --title=egg-server-man-server",
     "pretest": "npm run clean && npm run lint -- --fix",
@@ -51,10 +52,12 @@
     "@eggjs/bin": "7",
     "@eggjs/mock": "6",
     "@eggjs/tsconfig": "1",
+    "@types/fs-extra": "^11.0.4",
     "@types/mocha": "10",
     "@types/node": "22",
     "eslint": "8",
     "eslint-config-egg": "14",
+    "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
@@ -63,7 +66,7 @@
     "typescript": "5"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20.18.1"
   },
   "egg": {
     "typescript": true
