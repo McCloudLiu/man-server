@@ -6,9 +6,9 @@ import {
   HTTPMethodEnum,
   Inject,
 } from '@eggjs/tegg';
-import { EggAppConfig, EggContext, EggLogger } from 'egg';
+import { EggContext, EggLogger } from 'egg';
+import { server } from 'extensions/web-socket/app';
 import fs from 'fs';
-import path from 'path';
 
 @HTTPController({
   path: '/api/upload',
@@ -17,7 +17,6 @@ export default class UploadController {
   // 这是一个用来打印日志的工具
   @Inject() private readonly logger: EggLogger;
   // 获取应用配置
-  @Inject() private readonly config: EggAppConfig;
 
   @HTTPMethod({
     method: HTTPMethodEnum.POST,
@@ -42,22 +41,18 @@ export default class UploadController {
       };
     }
 
-    const filename = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}${path.extname(file.filepath)}`;
+    const buffer = await fs.promises.readFile(file.filepath);
 
-    const exactFilePath = path.resolve(this.config.uploadFileDir, filename);
+    server.clients.forEach((client) => {
+      client.send(buffer);
+    });
 
-    await fs.promises.mkdir(this.config.uploadFileDir, { recursive: true });
-
-    await fs.promises.copyFile(file.filepath, exactFilePath);
-
-    // 删除临时文件
     await fs.promises.unlink(file.filepath);
 
     return {
       success: true,
       data: {
         // 从合理性上讲这里不应该把文件路径返给浏览器，而是应该在数据库绑定该文件路径与该用户的关联关系
-        exactFilePath,
         body,
       },
     };
