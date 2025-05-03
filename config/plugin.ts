@@ -1,4 +1,5 @@
 import { EggPlugin } from 'egg';
+import path from 'path';
 
 const plugin: EggPlugin = {
   tegg: {
@@ -36,6 +37,10 @@ const plugin: EggPlugin = {
   mysql: {
     enable: true,
     package: 'egg-mysql',
+  },
+  ws: {
+    enable: true,
+    path: path.resolve(__dirname, '..', 'extensions', 'web-socket'),
   },
 };
 

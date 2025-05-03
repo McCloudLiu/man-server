@@ -46,15 +46,18 @@
     "@eggjs/tracer": "^3.0.0",
     "egg": "^4.0.0",
     "egg-cors": "^3.0.1",
-    "egg-mysql": "^5.0.0"
+    "egg-mysql": "^5.0.0",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@eggjs/bin": "7",
     "@eggjs/mock": "6",
+    "@eggjs/tegg-types": "^3.53.0",
     "@eggjs/tsconfig": "1",
     "@types/fs-extra": "^11.0.4",
     "@types/mocha": "10",
     "@types/node": "22",
+    "@types/ws": "^8.18.1",
     "eslint": "8",
     "eslint-config-egg": "14",
     "fs-extra": "^11.3.0",

@@ -1,0 +1,9 @@
+{
+  "name": "eggjs-ws-plugin",
+  "egg": {
+    "typescript": true
+  },
+  "eggPlugin": {
+    "name": "ws"
+  }
+}
