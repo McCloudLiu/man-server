@@ -48,6 +48,7 @@ fse
           },
         },
       ),
+      fse.ensureDir(path.join(DEPLOY_ASSETS_DIR, 'files')),
     ]);
 
     cp.execSync('npm run clean', { cwd: ROOT_DIR });
