@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["eggctl", "eggjs", "eventbus", "postci", "preci", "tegg"]
+  "cSpell.words": [
+    "eggctl",
+    "eggjs",
+    "eventbus",
+    "postci",
+    "preci",
+    "sbit",
+    "tegg"
+  ]
 }

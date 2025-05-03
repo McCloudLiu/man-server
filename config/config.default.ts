@@ -17,8 +17,8 @@ export default (appInfo: EggAppInfo) => {
     mode: 'file',
     whitelist(filename) {
       if (
-        [/\.txt$/, /\.jpe?g$/, /\.png$/, /\.gif$/, /\.webp$/].some((regex) =>
-          regex.test(filename),
+        [/\.txt$/, /\.jpe?g$/, /\.png$/, /\.gif$/, /\.webp$/, /\.sbit$/].some(
+          (regex) => regex.test(filename),
         )
       )
         return true;
