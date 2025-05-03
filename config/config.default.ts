@@ -35,24 +35,24 @@ export default (appInfo: EggAppInfo) => {
 
   config.uploadFileDir = path.resolve(__dirname, '..', 'files');
 
-  config.mysql = {
-    client: {
-      // host 即 mysql 所在机器的域名或 ip 地址
-      host: '127.0.0.1',
-      // 端口号
-      port: '3306',
-      // 用户名
-      user: '',
-      // 密码
-      password: '',
-      // 数据库名
-      database: '',
-    },
-    // 是否加载到 app 上，默认开启
-    app: true,
-    // 是否加载到 agent 上，默认关闭
-    agent: false,
-  };
+  // config.mysql = {
+  //   client: {
+  //     // host 即 mysql 所在机器的域名或 ip 地址
+  //     host: '127.0.0.1',
+  //     // 端口号
+  //     port: '3306',
+  //     // 用户名
+  //     user: '',
+  //     // 密码
+  //     password: '',
+  //     // 数据库名
+  //     database: '',
+  //   },
+  //   // 是否加载到 app 上，默认开启
+  //   app: true,
+  //   // 是否加载到 agent 上，默认关闭
+  //   agent: false,
+  // };
 
   // the return config will combines to EggAppConfig
   return {
