@@ -38,6 +38,17 @@ fse
         },
       ),
       fse.copy(
+        path.join(ROOT_DIR, 'extensions'),
+        path.join(DEPLOY_ASSETS_DIR, 'extensions'),
+        {
+          filter(src) {
+            if (src.endsWith('.ts')) return false;
+
+            return true;
+          },
+        },
+      ),
+      fse.copy(
         path.join(ROOT_DIR, 'config'),
         path.join(DEPLOY_ASSETS_DIR, 'config'),
         {
