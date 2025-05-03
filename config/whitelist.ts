@@ -1,6 +1,6 @@
 const common: RegExp[] = [];
 
-export const prod: RegExp[] = [...common];
+export const prod: RegExp[] = [...common, /^https?:\/\/man\.kira\.host\//];
 
 export const local: RegExp[] = [
   ...common,

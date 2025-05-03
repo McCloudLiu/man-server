@@ -9,8 +9,7 @@ export const server = new ws.Server({
 export default (app: Application) => {
   app.on('server', (_server: Server) => {
     _server.on('upgrade', (req, socket, head) => {
-      server.handleUpgrade(req, socket, head, () => {
-      });
+      server.handleUpgrade(req, socket, head, () => {});
     });
   });
 };

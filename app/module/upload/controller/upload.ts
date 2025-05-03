@@ -7,8 +7,8 @@ import {
   Inject,
 } from '@eggjs/tegg';
 import { EggContext, EggLogger } from 'egg';
-import { server } from 'extensions/web-socket/app';
 import fs from 'fs';
+import { server } from '../../../../extensions/web-socket/app';
 
 @HTTPController({
   path: '/api/upload',
